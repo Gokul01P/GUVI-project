@@ -1,32 +1,36 @@
 <?php
-require "../assets/config_Login.php";
-require '../assets/vendor/autoload.php';
+// Include Redis extension
+require '../assets/vendor/autoload.php'; // Path to Redis autoload file
 
-use MongoDB\Client;
+use Predis\Client as RedisClient;
 
-// MongoDB connection parameters
-$mongoClient = new Client("mongodb://localhost:27017");
-$mongoDatabase = $mongoClient->selectDatabase('MyDb');
-$mongoCollection = $mongoDatabase->selectCollection('users');
-
-// Fetch user profile data from MongoDB if the request method is POST
+// Redis connection parameters
+$redis = new RedisClient();
+// Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve the email address from the POST data
-    $email = $_POST['email'];
+    // Retrieve the ObjectId from localStorage
+    $objectId = $_POST["objectId"];
 
-    // Query MongoDB to find the user profile based on the email address
-    $userProfile = $mongoCollection->findOne(['EmailID' => $email]);
-    
-    // Display user profile data
-    if ($userProfile) {
-        echo '<p><strong>First Name:</strong> ' . $userProfile['FirstName'] . '</p>';
-        echo '<p><strong>Last Name:</strong> ' . $userProfile['LastName'] . '</p>';
-        echo '<p><strong>Email:</strong> ' . $userProfile['EmailID'] . '</p>';
-        echo '<p><strong>Age:</strong> ' . $userProfile['Age'] . '</p>';
-        echo '<p><strong>Contact:</strong> ' . $userProfile['Phone Number'] . '</p>';
-        // Add more profile details as needed
+    // Check if the ObjectId is present
+    if (!empty($objectId)) {
+        // Retrieve data from Redis using the ObjectId as key
+        $redisData = $redis->get('user:'.$objectId);
+
+        // Check if data exists in Redis
+        if ($redisData !== null) {
+            // Data found in Redis, output the details
+            echo $redisData;
+        } else {
+            // Data not found in Redis
+            echo "Data not found in Redis!";
+        }
     } else {
-        echo '<p>No user profile found!</p>';
+        // ObjectId is empty or not provided
+        echo "ObjectId is empty or not provided!";
     }
+} else {
+    // If the request method is not POST, return an error
+    http_response_code(405); // Method Not Allowed
+    echo "Only POST requests are allowed!";
 }
 ?>

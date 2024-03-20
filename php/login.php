@@ -19,7 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve the email and password from the POST data
     $email = $_POST["email"];
     $password = $_POST["password"];
+    
     // Database connection parameters
+    
+
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -45,8 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mongoDocument = $mongoCollection->findOne($filter);
             if ($mongoDocument !== null) {
                 // Retrieve ObjectId from MongoDB document
+                $objectId = (string) $mongoDocument['_id'];
                 // Output success message along with ObjectId
-                echo json_encode(['status' => 'success', 'userData' => $mongoDocument]);
+                // echo "$objectId";
+                echo json_encode(['status' => 'success', 'objectId' => $objectId]); 
+                $redis->set('user:'.$objectId, json_encode($mongoDocument));
             } else {
                 // User not found in MongoDB
                 echo json_encode(['status' => 'User not found in MongoDB!']);

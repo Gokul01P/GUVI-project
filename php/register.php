@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			"LastName" => $lname,
 			"EmailID" => $email,
             "Age" => $age,
-			"Phone Number" => $contact,
+			"PhoneNumber" => $contact,
 		);
 
 		$insert = $userCollection->insertOne($data);
