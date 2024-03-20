@@ -8,7 +8,6 @@
 
     <!-- Include jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 </head>
 <body>
     <div class="nav">
@@ -17,45 +16,43 @@
         </div>
         <div class="right-links">
             <a href="#"><button class="btn">Change Profile</button></a>
-            <a href="login.html"><button class="btn">Log out</button></a>
+            <button type="submit" class="btn" id="logout">Logout</button>    
+            <button type="submit" class="btn">Update</button>   
         </div>
     </div>
     <main>
-    <div class="container">
-        <div class="box form-box">
-            <header>User Profile</header>
-            <form id="registerForm" method="POST">
-                <div class="field input">
-                    <lable for="fname">First Name :  <p id="fname"></p>
-                    </lable>
-                </div>
-                <div class="field input">
-                    <lable for="lname">Last Name :   <p id="lname"></p>
-                    </lable>
-                </div>
-                <div class="field input">
-                    <lable for="email">Email :   <p id="email"></p>
-                    </lable>
-                </div>
-                <div class="field input">
-                    <label for="dob">Date of Birth :   </label>
-                </div>
-                <div class="field input">
-                    <lable for="age">Age : </lable>
-                </div>
-                <div class="field input">
-                    <lable for="contact">Contact No :   <p id="contact"></p></lable>
-                </div>
-            </form>
-            <!-- <div id="profileInfo">
-                <p id="fname"></p>
-                <p id="lname"></p>
-                <p id="email"></p>
-                <p id="contact"></p>
-            </div> -->
+        <div class="container">
+            <div class="box form-box">
+                <header>User Profile</header>
+                <form id="registerForm" method="POST">
+                    <div class="field input">
+                        <label for="fname">First Name :</label>
+                        <input type="text" id="fname" name="fname" >
+                    </div>
+                    <div class="field input">
+                        <label for="lname">Last Name :</label>
+                        <input type="text" id="lname" name="lname" >
+                    </div>
+                    <div class="field input">
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" readonly>
+                    </div>
+                    <div class="field input">
+                        <label for="dob">Date of Birth :</label>
+                        <input type="text" id="dob" name="dob">
+                    </div>
+                    <div class="field input">
+                        <label for="age">Age :</label>
+                        <input type="number" id="age" name="age" >
+                    </div>
+                    <div class="field input">
+                        <label for="contact">Contact No :</label>
+                        <input type="text" id="contact" name="contact" >
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
     </main>
-    <script src="js/profile.js"></script>
+    <script src="./js/profile.js"></script>
 </body>
 </html>
