@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="box form-box">
+            <header>Sign Up</header>
+            <header>Complete the below details to create an account </header>
+            
+            <form id="registerForm" method="POST">
+                <div class="field input">
+                    <lable for="fname">First Name</lable>
+                    <input type="text" name="fname" id="fname" required>
+                </div>
+                <div class="field input">
+                    <lable for="lname">Last Name</lable>
+                    <input type="text" name="lname" id="lname" required>
+                </div>
+                <div class="field input">
+                    <lable for="email">Email</lable>
+                    <input type="text" name="email"  id="email" required>
+                </div>
+                <div class="field input">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="field input">
+                    <lable for="age">Age</lable>
+                    <input type="number" name="age" autocomplete="off" id="age" required>
+                </div>
+                
+                <div class="field input">
+                    <lable for="password">Password</lable>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="field input">
+                    <lable for="password">Confirm Password</lable>
+                    <input type="password" name="cpassword" id="cpassword" required>
+                </div>
+                <div class="field input">
+                    <lable for="contact">Contact No.</lable>
+                    <input type="number" name="contact" id="contact" required>
+                </div>
+
+                <!-- <input type="submit" name="register"  class="btn" style="margin-right: 170px;" id="register" value="Register"> -->
+                <button id="signup" class="btn" style="margin-right: 190px;" name="signup" type="submit" >Register</button>
+                <!-- <a id="button"class="btn" style="margin-right: 190px;">Register</a> -->
+                
+                <a href="./register.html" class="btn">Cancel</a>
+                <br>
+                <br>
+                <div class="links">
+                   Already have an account? <a href="login.html">Login here</a>  
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./js/register.js"></script>
+</body>
+</html>
+
+
