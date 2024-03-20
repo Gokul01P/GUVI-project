@@ -6,28 +6,55 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/styles.css">
 
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
     <div class="nav">
         <div class="profile">
             <p>GoGo</p>
         </div>
-
         <div class="right-links">
-            <a href="#">Change Profile</a>
+            <a href="#"><button class="btn">Change Profile</button></a>
             <a href="login.html"><button class="btn">Log out</button></a>
         </div>
     </div>
     <main>
-        <div class="profile-box">
-            <h2>User Profile</h2>
-            <div id="profileInfo">
+    <div class="container">
+        <div class="box form-box">
+            <header>User Profile</header>
+            <form id="registerForm" method="POST">
+                <div class="field input">
+                    <lable for="fname">First Name :  <p id="fname"></p>
+                    </lable>
+                </div>
+                <div class="field input">
+                    <lable for="lname">Last Name :   <p id="lname"></p>
+                    </lable>
+                </div>
+                <div class="field input">
+                    <lable for="email">Email :   <p id="email"></p>
+                    </lable>
+                </div>
+                <div class="field input">
+                    <label for="dob">Date of Birth :   </label>
+                </div>
+                <div class="field input">
+                    <lable for="age">Age : </lable>
+                </div>
+                <div class="field input">
+                    <lable for="contact">Contact No :   <p id="contact"></p></lable>
+                </div>
+            </form>
+            <!-- <div id="profileInfo">
                 <p id="fname"></p>
                 <p id="lname"></p>
                 <p id="email"></p>
                 <p id="contact"></p>
-            </div>
+            </div> -->
         </div>
+    </div>
     </main>
     <script src="js/profile.js"></script>
 </body>
