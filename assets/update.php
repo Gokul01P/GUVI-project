@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Update the user profile in MongoDB
     $result = $mongoCollection->updateOne(
-        ['EmailId' => $EmailID], // Filter condition (e.g., email)
+        ['EmailID' => $EmailID], // Filter condition (e.g., email)
         ['$set' => [
             'FirstName' => $FirstName,
             'LastName' => $LastName,
