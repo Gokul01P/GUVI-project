@@ -9,29 +9,30 @@ $mongoClient = new Client("mongodb://localhost:27017");
 $mongoDatabase = $mongoClient->selectDatabase('MyDb'); // Replace 'your_database_name' with your actual database name
 $mongoCollection = $mongoDatabase->selectCollection('users'); // Replace 'user_profiles' with your actual collection name
 
+
 // Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve the form data
-    $FirstName = $_POST["fname"];
-    $LastName = $_POST["lname"];
-    $EmailID = $_POST["email"];
-    $Date_of_birth = $_POST["dob"];
-    $Age = $_POST["age"];
-    $PhoneNumber = $_POST["contact"];
-    
-    // $bio = $_POST["bio"];
+    $FirstName = $_POST["FirstName"];
+    $LastName = $_POST["LastName"];
+    $EmailID = $_POST["EmailID"];
+    $Date_of_birth = $_POST["Date_of_birth"];
+    $Age = $_POST["Age"];
+    $PhoneNumber = $_POST["PhoneNumber"];
 
     // Update the user profile in MongoDB
+
+    var_dump($EmailID);
+    
     $result = $mongoCollection->updateOne(
         ['EmailID' => $EmailID], // Filter condition (e.g., email)
         ['$set' => [
             'FirstName' => $FirstName,
             'LastName' => $LastName,
             'EmailID' => $EmailID,
-            'Date_of_birth' => $dob,
+            'Date_of_birth' => $Date_of_birth,
             'Age' => $Age,
             'PhoneNumber' => $PhoneNumber,
-            // 'bio' => $bio
         ]]
     );
 
