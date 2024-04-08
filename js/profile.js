@@ -44,15 +44,14 @@ $(document).ready(function() {
         localStorage.clear();
     }
     
-        // Function to clear Redis storage
-        function clearRedisStorage() {
-            // Send a POST request to clear Redis storage
-            $.post("./assets/clear_redis.php", function(response) {
-                console.log(response);
-            }).fail(function(xhr, status, error) {
-                console.error("Error:", error);
-            });
-        }
+    function clearRedisStorage() {
+        // Send a POST request to clear Redis storage
+        $.post("./assets/clear_redis.php",{ objectId: objectId }, function(response) {
+            console.log(response);
+        }).fail(function(xhr, status, error) {
+            console.error("Error:", error);
+        });
+    }
     
         // Function to handle logout
         function logout() {

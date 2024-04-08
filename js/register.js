@@ -7,6 +7,7 @@ $(document).ready(function() {
             lname: $("#lname").val(),
             email: $("#email").val(),
             age: $("#age").val(),
+            dob: $("#dob").val(),
             password: $("#password").val(),
             cpassword: $("#cpassword").val(),
             contact: $("#contact").val()
